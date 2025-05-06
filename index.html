@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/ >
+			
+			<title>App_ToDo_Liste</title>
+			
+		<style>
+		
+			.die_todo_liste {
+			background-color:#D8D8D8;
+			font-size:15px;
+			margin:15px;
+			border-radius:10px;
+			padding:10px;
+			text-align: center;
+			}
+			
+			.die_todo_liste_2 {
+			background-color:#F7F7F7;
+			font-size:15px;
+			margin:15px;
+			border-radius:3px;
+			padding:10px;
+			text-align:center;
+			font-family:Arial;
+			}
+			
+		</style>
+		
+				<script>
+					function einfügendenAufgabe() {
+						var neueAufgabe = document.createElement("div");
+						neueAufgabe.innerHTML = document.getElementById("liste123").value;
+						neueAufgabe.onclick = entfernenAufgaben;
+						document.getElementById("_liste").appendChild(neueAufgabe);
+					}
+					
+					function entfernenAufgaben() {
+						document.getElementById("_liste").removeChild(this);
+					}
+					if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js")
+      .then(() => console.log("Service Worker registriert"))
+      .catch((err) => console.error("Fehler beim Registrieren des Service Workers:", err));
+  }
+				</script>
+		
+		<link rel="manifest" href="manifest.json">
+
+	</head>
+	
+	<body>
+	<center>
+		<h2 style="font-family:Arial;text-align: center">Michis Aufgaben:</h2>
+		<input type="button" onclick="einfügendenAufgabe();" value="Einfügen"   class="die_todo_liste"/>
+			<br/>
+			<br/>
+		<input type="text" value="Aufgabe eintippen" class="die_todo_liste_2" id="liste123"/>
+			<br/>
+		<div id="_liste" ><h3 style="font-family:Arial;text-align: center"> Michis Dos :</h3></div>
+
+</center>
+					
+	</body>
+	
+</html>
